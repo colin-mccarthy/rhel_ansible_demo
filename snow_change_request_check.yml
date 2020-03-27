@@ -4,7 +4,7 @@
   gather_facts: no
   
   vars:
-    table: incident
+    table: change_request
     state: present
   
   
