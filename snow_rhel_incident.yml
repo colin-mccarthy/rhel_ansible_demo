@@ -24,6 +24,7 @@
         u_bios_version: "{{ ansible_facts.bios_version }}"
         u_hostname: "{{ ansible_facts.hostname }}"
         u_processor: "{{ ansible_facts.processor[2] }}"
+        u_python_version: "{{ ansible_facts.python_version }}"
         short_description: "This ticket was created by Ansible"
     register: incident
     delegate_to: localhost
