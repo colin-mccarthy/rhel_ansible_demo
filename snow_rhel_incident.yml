@@ -1,7 +1,7 @@
 ---
 - name: change request verification
   hosts: localhost
-  gather_facts: nyes
+  gather_facts: true
   
   vars:
     table: incident
