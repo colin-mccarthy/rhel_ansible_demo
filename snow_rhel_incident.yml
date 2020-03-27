@@ -22,6 +22,7 @@
         u_distribution: "{{ ansible_facts.distribution }}"
         u_architecture: "{{ ansible_facts.architecture }}"
         u_bios_version: "{{ ansible_facts.bios_version }}"
+        u_hostname: "{{ ansible_facts.hostname }}"
         short_description: "This ticket was created by Ansible"
     register: incident
     delegate_to: localhost
