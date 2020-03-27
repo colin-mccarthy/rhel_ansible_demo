@@ -29,4 +29,4 @@
     
   - debug: var=change_request.record
   
-  - debug: var=ansible_facts
+  - debug: var=ansible_facts.architecture
