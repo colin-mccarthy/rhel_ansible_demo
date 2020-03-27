@@ -23,6 +23,7 @@
         u_architecture: "{{ ansible_facts.architecture }}"
         u_bios_version: "{{ ansible_facts.bios_version }}"
         u_hostname: "{{ ansible_facts.hostname }}"
+        u_processor: "{{ ansible_facts.processor[2] }}"
         short_description: "This ticket was created by Ansible"
     register: incident
     delegate_to: localhost
@@ -32,3 +33,5 @@
 #  - debug: var=ansible_facts.architecture
 #  - debug: var=ansible_facts.bios_version
 #  - debug: var=ansible_facts.distribution
+
+
