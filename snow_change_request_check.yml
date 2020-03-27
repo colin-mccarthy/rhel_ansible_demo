@@ -1,0 +1,27 @@
+---
+- name: change request verification
+  hosts: web
+  become: yes
+  
+#  vars: 
+  
+  
+  tasks:
+
+  - name: verify change request "{{ foo }}"
+    snow_record:
+      state: present
+      table: change_request
+      username: "{{ SN_USERNAME }}"
+      password: "{{ SN_PASSWORD }}"
+      instance: "{{ SN_INSTANCE }}"
+      number: "{{ change_request_number }}"
+      data:
+      #  priority: "{{ priority }}"
+     #   u_device_up_time: "{{ system_facts.uptime }}"
+     #   u_ios_version: "{{ system_facts.version }}"
+     #   u_hostname: "{{ inventory_hostname }}"
+      #  short_description: "This ticket was created by Ansible"
+    register: change_request
+
+  - debug: var=change_request.record
