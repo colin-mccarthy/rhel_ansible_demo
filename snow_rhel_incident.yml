@@ -31,3 +31,4 @@
   
   - debug: var=ansible_facts.architecture
   - debug: var=ansible_facts.bios_version
+  - debug: var=ansible_facts.distribution
