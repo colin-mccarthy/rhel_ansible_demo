@@ -2,6 +2,10 @@
 - name: Apache server installed
   hosts: web
   become: yes
+  
+  vars:
+    file_path: /var/www/html/index.html
+  
   tasks:
   - name: latest Apache version installed
     yum:
@@ -14,5 +18,5 @@
       state: started
   - name: copy index.html
     copy:
-      src: index.html
-      dest: /var/www/html/
+      src: index.j2
+      dest: "{{ file_path }}"
