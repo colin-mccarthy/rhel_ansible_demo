@@ -23,7 +23,7 @@
      #   u_device_up_time: "{{ system_facts.uptime }}"
      #   u_ios_version: "{{ system_facts.version }}"
      #   u_hostname: "{{ inventory_hostname }}"
-      #  short_description: "This ticket was created by Ansible"
+        short_description: "This ticket was created by Ansible"
     register: change_request
 
   - debug: var=change_request.record
