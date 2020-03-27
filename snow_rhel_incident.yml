@@ -1,5 +1,5 @@
 ---
-- name: change request verification
+- name: Create RHEL incident
   hosts: web
   gather_facts: true
   
@@ -10,7 +10,7 @@
   
   tasks:
 
-  - name: verify change request "{{ change_request_number }}"
+  - name: Create RHEL incident
     snow_record:
       state: "{{ state }}" 
       table: "{{ table }}"
@@ -19,16 +19,15 @@
       instance: "{{ SN_INSTANCE }}"
      # number: "{{ change_request_number }}"
       data:
-      #  priority: "{{ priority }}"
-     #   u_device_up_time: "{{ system_facts.uptime }}"
-     #   u_ios_version: "{{ system_facts.version }}"
-     #   u_hostname: "{{ inventory_hostname }}"
+        u_distribution: "{{ ansible_facts.distribution }}"
+        u_architecture: "{{ ansible_facts.architecture }}"
+        u_bios_version: "{{ ansible_facts.bios_version }}"
         short_description: "This ticket was created by Ansible"
-    register: change_request
+    register: incident
     delegate_to: localhost
     
-  - debug: var=change_request.record
+  - debug: var=incident.record.number
   
-  - debug: var=ansible_facts.architecture
-  - debug: var=ansible_facts.bios_version
-  - debug: var=ansible_facts.distribution
+#  - debug: var=ansible_facts.architecture
+#  - debug: var=ansible_facts.bios_version
+#  - debug: var=ansible_facts.distribution
