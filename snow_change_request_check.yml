@@ -3,19 +3,21 @@
   hosts: localhost
   gather_facts: no
   
-#  vars: 
+  vars:
+    table: change_request
+    state: present
   
   
   tasks:
 
   - name: verify change request "{{ change_request_number }}"
     snow_record:
-      state: present
-      table: change_request
+      state: "{{ state }}" 
+      table: "{{ table }}"
       username: "{{ SN_USERNAME }}"
       password: "{{ SN_PASSWORD }}"
       instance: "{{ SN_INSTANCE }}"
-      number: "{{ change_request_number }}"
+     # number: "{{ change_request_number }}"
       data:
       #  priority: "{{ priority }}"
      #   u_device_up_time: "{{ system_facts.uptime }}"
