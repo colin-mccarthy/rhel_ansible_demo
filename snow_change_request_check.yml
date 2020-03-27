@@ -8,7 +8,7 @@
   
   tasks:
 
-  - name: verify change request "{{ foo }}"
+  - name: verify change request "{{ change_request_number }}"
     snow_record:
       state: present
       table: change_request
