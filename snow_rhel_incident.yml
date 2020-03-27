@@ -1,6 +1,6 @@
 ---
 - name: change request verification
-  hosts: localhost
+  hosts: web
   gather_facts: true
   
   vars:
