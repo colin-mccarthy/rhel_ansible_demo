@@ -28,3 +28,5 @@
     delegate_to: localhost
     
   - debug: var=change_request.record
+  
+  - debug: var=ansible_facts
