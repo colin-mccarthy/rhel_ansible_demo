@@ -17,6 +17,6 @@
       enabled: true
       state: started
   - name: copy index.html
-    copy:
+    template:
       src: index.j2
       dest: "{{ file_path }}"
