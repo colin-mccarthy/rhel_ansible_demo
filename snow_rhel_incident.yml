@@ -30,3 +30,4 @@
   - debug: var=change_request.record
   
   - debug: var=ansible_facts.architecture
+  - debug: var=ansible_facts.bios_version
