@@ -1,6 +1,6 @@
 ---
 - name: change request verification
-  hosts: web
+  hosts: localhost
   become: yes
   
 #  vars: 
