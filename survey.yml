@@ -1,18 +1,18 @@
 ---
-- name: "{{ pack }}" yum install
+- name: "{{ pack }} yum install"
   hosts: web
   become: yes
   
   
   tasks:
-  - name: latest "{{ pack }}" version installed
+  - name: "latest {{ pack }} version installed"
     yum:
       name: "{{ pack }}"
       state: latest
       
       
       
-  - name: "{{ pack }}" enabled and running
+  - name: "{{ pack }} enabled and running"
     service:
       name: "{{ pack }}"
       enabled: true
