@@ -1,0 +1,14 @@
+---
+- name: Create RHEL incident
+  hosts: web
+  gather_facts: true
+
+  
+  
+  tasks:
+
+
+  
+  - debug: var=ansible_facts.architecture
+  - debug: var=ansible_facts.bios_version
+  - debug: var=ansible_facts.distribution
