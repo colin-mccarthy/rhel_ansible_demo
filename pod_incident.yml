@@ -1,0 +1,31 @@
+
+---
+- name: Create RHEL incident
+  hosts: localhost
+  gather_facts: true
+  
+  vars:
+    table: incident
+    state: present
+  
+  
+  tasks:
+
+  - name: Create RHEL incident
+    snow_record:
+      state: "{{ state }}" 
+      table: "{{ table }}"
+      username: "{{ SN_USERNAME }}"
+      password: "{{ SN_PASSWORD }}"
+      instance: "{{ SN_INSTANCE }}"
+     # number: "{{ change_request_number }}"
+      data:
+        short_description: "This ticket was created by Ansible"
+    register: incident
+    delegate_to: localhost
+    
+  - debug: var=incident.record.number
+  
+#  - debug: var=ansible_facts.architecture
+#  - debug: var=ansible_facts.bios_version
+#  - debug: var=ansible_facts.distribution
