@@ -29,7 +29,9 @@
     register: incident
     delegate_to: localhost
     
-  - debug: var=incident.record.number
+  - debug: var=incident.record
+  
+  # - debug: var=incident.record.number
   
 #  - debug: var=ansible_facts.architecture
 #  - debug: var=ansible_facts.bios_version
