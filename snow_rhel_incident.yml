@@ -29,7 +29,7 @@
     register: incident
     delegate_to: localhost
     
-  - debug: var=incident.record
+  - debug: var=incident
   
   # - debug: var=incident.record.number
   
