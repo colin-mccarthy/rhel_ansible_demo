@@ -1,0 +1,37 @@
+---
+- name: Create RHEL incident - Dearl
+  hosts: web
+  gather_facts: true
+  
+  vars:
+    table: incident
+    state: present
+  
+  
+  tasks:
+
+  - name: Create RHEL incident
+    snow_record:
+      state: "{{ state }}" 
+      table: "{{ table }}"
+      username: "{{ SN_USERNAME }}"
+      password: "{{ SN_PASSWORD }}"
+      instance: "{{ SN_INSTANCE }}"
+     # number: "{{ change_request_number }}"
+      data:
+        u_distribution: "{{ ansible_facts.distribution }}"
+        u_architecture: "{{ ansible_facts.architecture }}"
+        u_bios_version: "{{ ansible_facts.bios_version }}"
+        u_hostname: "{{ ansible_facts.hostname }}"
+        u_processor: "{{ ansible_facts.processor[2] }}"
+        u_python_version: "{{ ansible_facts.python_version }}"
+        u_tower_job_id: "{{ tower_job_id }}"
+        short_description: "This ticket was created by Ansible"
+    register: incident
+    delegate_to: localhost
+  
+  - debug: var=incident.record.number
+  
+#  - debug: var=ansible_facts.architecture
+#  - debug: var=ansible_facts.bios_version
+#  - debug: var=ansible_facts.distribution
