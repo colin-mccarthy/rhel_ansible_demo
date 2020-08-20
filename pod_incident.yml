@@ -1,7 +1,7 @@
 
 ---
 - name: Create RHEL incident
-  hosts: localhost
+  hosts: web
   gather_facts: true
   
   vars:
