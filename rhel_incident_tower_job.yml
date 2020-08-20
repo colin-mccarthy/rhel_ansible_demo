@@ -1,5 +1,5 @@
 ---
-- name: Create RHEL incident - Dearl
+- name: Create RHEL incident 
   hosts: web
   gather_facts: true
   
