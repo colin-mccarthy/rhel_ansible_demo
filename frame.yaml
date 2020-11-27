@@ -1,0 +1,31 @@
+---
+- name: Create RHEL incident 
+  hosts: web
+  gather_facts: true
+  
+  vars:
+    table: incident
+    state: present
+  
+  
+  tasks:
+
+  - name: Create RHEL incident
+    snow_record:
+      state: "{{ state }}" 
+      table: "{{ table }}"
+      username: "{{ SN_USERNAME }}"
+      password: "{{ SN_PASSWORD }}"
+      instance: "{{ SN_INSTANCE }}"
+      data:
+        u_distribution: "{{ ansible_facts.distribution }}"
+        u_architecture: "{{ ansible_facts.architecture }}"
+        u_bios_version: "{{ ansible_facts.bios_version }}"
+        u_hostname: "{{ ansible_facts.hostname }}"
+        u_processor: "{{ ansible_facts.processor[2] }}"
+        u_python_version: "{{ ansible_facts.python_version }}"
+        short_description: "This ticket was created by Ansible"
+    register: incident
+    delegate_to: localhost
+  
+  - debug: var=incident.record.number
